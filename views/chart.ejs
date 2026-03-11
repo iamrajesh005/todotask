@@ -1,0 +1,22 @@
+<% layout('layout/temp') -%>
+<div class="flex justify-center items-center bg-gradient-to-l from-sky-500 to-blue-800 min-h-screen ">
+    <div style="width: 400px; margin: auto; " class="bg-base-100">
+      <canvas id="taskChart"></canvas>
+    </div>
+</div>
+<script>
+  const ctx = document.getElementById('taskChart');
+
+  new Chart(ctx, {
+    type: 'pie', // You can use 'bar', 'line', or 'pie'
+    data: {
+      labels: ['Pending', 'Completed'],
+      datasets: [{
+        label: 'Tasks Status',
+        // We use EJS to print the length of your task arrays 
+        data: [<%= notcomTask.length %>, <%= comTask.length %>], 
+        backgroundColor: ['#ff6384', '#36a2eb']
+      }]
+    }
+  });
+</script>

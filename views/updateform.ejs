@@ -1,0 +1,21 @@
+<% layout('layout/temp') -%>
+<div class="flex flex-col justify-center items-center bg-gradient-to-l from-blue-500 to-indigo-700 w-full min-h-screen">
+    <p class="text-2xl font-black text-white">Update your Task</p>
+    <br>
+    <div class="bg-violet-700 rounded-2xl bg-white/40 backdrop-blur-lg w-5/10 h-6/10 mb-59">
+        <form class="grid grid-col-3 gap-6 p-2 " action="/todo/<%= task._id %>?_method=PATCH" method="post">
+            <input class="col-span-3 bg-violet-100 rounded-full p-2" type="text" placeholder="enter you Task" name="taskname" value="<%=task.taskname %>" required>
+            <textarea class="col-span-3 bg-violet-100 rounded-full p-2" placeholder="add a description about your task" name="description" ><%= task.description %></textarea>
+            <select name="priority" class="bg-violet-100 rounded-full" value="<%=task.priority %>" required>
+                <option value="" disabled selected>-- select priority --</option>
+                <option value="high-priority">High priority</option>
+                <option value="medium-priority">medium priority</option>
+                <option value="low-priority">low priority</option>
+            </select>
+
+            
+            <input class="col-span-1 bg-violet-100 rounded-full ps-3" id="date" type="date" name="compDate" value="<%= task.compDate %>" required>
+            <button class="col-span-1 btn rounded-full bg-gradient-to-l from-sky-500 to-blue-800 border-none">Update</button>
+        </form>
+    </div>
+</div>

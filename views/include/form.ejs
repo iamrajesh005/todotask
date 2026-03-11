@@ -1,0 +1,17 @@
+<div class="bg-violet-700 rounded-2xl bg-white/40 backdrop-blur-lg">
+    
+    <form class="grid grid-col-3 gap-4 p-2" action="/todo" method="post">
+        <input class="col-span-3 bg-violet-100 rounded-full p-2" type="text" placeholder="enter you Task" name="taskname" required>
+        <textarea class="col-span-3 bg-violet-100 rounded-full p-2" placeholder="add a description about your task" name="description" ></textarea>
+        <select id="country" name="priority" class="bg-violet-100 rounded-full" required>
+            <option value="" disabled selected>-- select priority --</option>
+            <option value="high-priority">High priority</option>
+            <option value="medium-priority">medium priority</option>
+            <option value="low-priority">low priority</option>
+        </select>
+
+        
+        <input class="col-span-1 bg-violet-100 rounded-full ps-3" id="date" type="date" name="compDate" required>
+        <button class="col-span-1 btn rounded-full bg-gradient-to-l from-sky-500 to-blue-800 border-none">add Task</button>
+    </form>
+</div>

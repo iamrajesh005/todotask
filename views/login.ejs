@@ -1,0 +1,29 @@
+<% layout('layout/templog') -%>
+
+<div class="flex justify-center items-center bg-gradient-to-l from-sky-500 to-blue-800 min-h-screen">
+   <div class="card w-156 h-86 bg-base-100 shadow-sm ">
+  <div class="card-body flex flex-col justify-around">
+    <span class="badge badge-xs badge-warning">Login</span>
+    <div class="flex justify-between">
+      <h2 class="text-3xl font-bold">Log to your account</h2>
+   </div>
+<form action="/todo/login" method="post" >
+        
+         <label for="username" class="text-xl">username</label>
+        <input name="username" placeholder="Enter an unique username" id="username">
+        
+        <br>
+        <br>
+        <br>
+         <label for="password" class="text-xl">Password</label>
+        <input name="password" placeholder="Enter your password" id="password">
+        <br>
+        <br>
+        
+        <div class="mt-6">
+         <button class="btn btn-primary btn-block">Login</button>
+        </div>
+    </form>
+  </div>
+</div>
+</div>

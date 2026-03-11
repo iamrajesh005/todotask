@@ -1,0 +1,53 @@
+<% layout('layout/temp') -%>
+<body class="bg-gradient-to-l from-sky-500 to-blue-800 min-h-screen">
+    <div class="p-3 bg-gradient-to-l from-sky-500 to-blue-800 min-h-screen">
+                <% if(taskList && taskList.length>0 ){ %>
+
+               
+                <% for(list of taskList){ %>
+                      <div class="card card-dash bg-white/40 backdrop-blur-lg border-none w-full">
+                            <div class="card-body">
+                                <h2 class="card-title">Task: <%= list.taskname %></h2>
+                                <p>Description: <%= list.description %></p>
+                                <p>Completion Date: <%= list.compDate %></p>
+                                <div class="card-actions flex justify-between items-center">
+                                        <!-- <form method="post" action="/todo/<%= task._id %>/toggle?_method=PATCH">
+                                        <fieldset class="fieldset   p-4 h-10">
+                                            
+                                            <label class="label text-xl text-white font-bold">
+                                                <input type="checkbox" name="isDone" onchange="this.form.submit()" <%= task.isDone ? 'checked' : '' %> class="checkbox" />
+                                                Is Task Completed?
+                                            </label>
+                                        </fieldset> -->
+                                        
+                                        </form>
+                                    <div>
+                                        <% if (task.isDone) { %>
+                                            <div class="badge badge-primary">Completed</div>
+                                        <% } else { %>
+                                            <div class="badge badge-primary">Not Completed</div>
+                                        <% } %>
+                                    </div>
+                                        <% if(list.priority === "high-priority"){ %>
+                                            <div class="badge badge-error"><%= list.priority %></div>
+                                        <% } else if(list.priority === "medium-priority"){ %>
+                                            <div class="badge badge-warning"><%= list.priority %></div>
+                                        <% } else { %>
+                                            <div class="badge badge-primary"><%= list.priority %></div>
+                                        <% } %>
+                                        <form method="post" action="/todo/<%= list._id %>?_method=DELETE">
+                                          <button class="btn btn-primary">delete</button>
+                                        </form>
+                                      
+                                        <button class="btn btn-primary"><a href="/todo/<%= list._id %>/update">update</a></button>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                <% } %>
+                  <% } %>
+                  <% if(taskList && taskList.length===0) { %>
+                      <h1>No Such were added or finished and delete the task</h1>
+                  <% } %>
+            </div>
+</body>

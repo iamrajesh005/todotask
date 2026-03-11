@@ -1,0 +1,13 @@
+<% layout('layout/temp') %>
+<div class="flex justify-center items-center bg-gradient-to-l from-sky-500 to-blue-800 min-h-screen">
+   <div class="card w-156 h-86 bg-base-100 shadow-sm ">
+  <div class="card-body flex flex-col justify-around">
+    <span class="badge badge-xs badge-warning">Login</span>
+    <div class="flex justify-between">
+      <h2 class="text-3xl font-bold">Hi @<%= currUser.username %> this is your profile</h2>
+   </div>
+      <p>name: <%= currUser.yourname %></p>
+      <p>email: <%= currUser.email %></p>
+  </div>
+</div>
+</div>

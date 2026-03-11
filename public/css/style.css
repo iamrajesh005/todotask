@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.ck{
+    color: blue;
+}
+
+.para{
+    @active text-xl text-violet-300 text-bold
+}

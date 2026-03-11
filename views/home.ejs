@@ -1,0 +1,82 @@
+<% layout('layout/temp') -%>
+<body>
+    <div class="flex ">
+        <div class="w-2/10 bg-gradient-to-l from-sky-500 to-blue-800 min-h-screen">
+            <div>
+                <p class="text-5xl tracking-widest font-black ml-5"><%= day %></p>
+                <p class="text-2xl font-bold mt-2 ml-5"><%= month %>, <%= year %></p>
+            </div>
+            
+            <div class="ml-5 mt-6 flex flex-col gap-6">
+                <hr>
+                <p class="text-2xl text-white text-bold">total tasks: <%= getTasks.length %></p>
+                <p class="text-2xl text-white text-bold">Active tasks: <%= notcomTask.length %></p>
+                <p class="text-2xl text-white text-bold">Completed Tasks: 
+                    <%= comTask.length %>
+                </p>
+            </div>
+        </div>
+        <div class="w-6/10 bg-gradient-to-l from-blue-500 to-indigo-700 min-h-screen p-2">
+            <p class="text-2xl text-white font-extrabold">Add Your Task</p>
+            <%- include("./include/form.ejs") %>
+            <br>
+            <hr>
+            <div class="flex flex-col gap-4">
+                <p class="text-2xl text-white font-extrabold">Tasks</p>
+                <% for(task of getTasks){ %>
+                        <div class="card card-dash bg-white/40 backdrop-blur-lg border-none w-full">
+                            <div class="card-body">
+                                <h2 class="card-title">Task: <%= task.taskname %></h2>
+                                <p>Description: <%= task.description %></p>
+                                <p>Completion Dtae: <%= task.compDate %></p>
+                                <div class="card-actions flex justify-between items-center">
+                                    <form method="post" action="/todo/<%= task._id %>/toggle?_method=PATCH">
+                                        <fieldset class="fieldset   p-4 h-10">
+                                            
+                                            <label class="label text-xl text-white font-bold">
+                                                <input type="checkbox" name="isDone" onchange="this.form.submit()" <%= task.isDone ? 'checked' : '' %> class="checkbox" />
+                                                Is Task Completed?
+                                            </label>
+                                        </fieldset>
+                                        
+                                    </form>
+                                        <div>
+                                        <% if (task.isDone) { %>
+                                            <div class="badge badge-success">Completed</div>
+                                        <% } else { %>
+                                            <div class="badge badge-error">Not Completed</div>
+                                        <% } %>
+                                    </div>
+
+                                        <% if(task.priority === "high-priority"){ %>
+                                            <div class="badge badge-error"><%= task.priority %></div>
+                                        <% } else if(task.priority === "medium-priority"){ %>
+                                            <div class="badge badge-warning"><%= task.priority %></div>
+                                        <% } else { %>
+                                            <div class="badge badge-primary"><%= task.priority %></div>
+                                        <% } %>
+                                        <form method="post" action="/todo/<%= task._id %>?_method=DELETE">
+                                          <button class="btn btn-primary">delete</button>
+                                        </form>
+                                      
+                                        <button class="btn btn-primary"><a href="/todo/<%= task._id %>/update">update</a></button>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                
+                <% } %>
+            </div>
+        </div>
+        <div class="w-2/10 bg-gradient-to-l from-sky-500 to-blue-800 min-h-screen">
+            <form action="/todo/search" role="search" method="get">
+               <input type="text" placeholder="Search Task" name="taskname" role="search" class="input input-bordered w-24 md:w-auto" />
+               <button class="btn btn-soft btn-accent">Search</button>
+            </form>
+            <br>
+            <hr>
+            
+            
+        </div>
+    </div>
+</body>

@@ -1,0 +1,39 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "server": "node --watch index.js"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.2.1",
+    "@tailwindcss/vite": "^4.2.1",
+    "amqplib": "^0.10.9",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^17.3.1",
+    "ejs-mate": "^4.0.0",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^9.2.4",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^9.0.1",
+    "path": "^0.12.7",
+    "tailwind": "^2.3.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.27",
+    "daisyui": "^5.5.19",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.1"
+  }
+}
