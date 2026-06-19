@@ -1,17 +1,48 @@
-<div class="bg-violet-700 rounded-2xl bg-white/40 backdrop-blur-lg">
-    
-    <form class="grid grid-col-3 gap-4 p-2" action="/todo" method="post">
-        <input class="col-span-3 bg-violet-100 rounded-full p-2" type="text" placeholder="enter you Task" name="taskname" required>
-        <textarea class="col-span-3 bg-violet-100 rounded-full p-2" placeholder="add a description about your task" name="description" ></textarea>
-        <select id="country" name="priority" class="bg-violet-100 rounded-full" required>
-            <option value="" disabled selected>-- select priority --</option>
-            <option value="high-priority">High priority</option>
-            <option value="medium-priority">medium priority</option>
-            <option value="low-priority">low priority</option>
-        </select>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-sm">
+  <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">New Task</h3>
+  <form class="flex flex-col gap-3" action="/todo" method="post">
 
-        
-        <input class="col-span-1 bg-violet-100 rounded-full ps-3" id="date" type="date" name="compDate" required>
-        <button class="col-span-1 btn rounded-full bg-gradient-to-l from-sky-500 to-blue-800 border-none">add Task</button>
-    </form>
+    <input
+      class="w-full bg-white/10 border border-white/10 text-white placeholder-slate-400 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+      type="text"
+      placeholder="Task name"
+      name="taskname"
+      required
+    />
+
+    <textarea
+      class="w-full bg-white/10 border border-white/10 text-white placeholder-slate-400 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition resize-none"
+      placeholder="Description (optional)"
+      name="description"
+      rows="2"
+    ></textarea>
+
+    <div class="flex flex-col sm:flex-row gap-3">
+      <select
+        name="priority"
+        required
+        class="flex-1 bg-white/10 border border-white/10 text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none cursor-pointer"
+      >
+        <option value="" disabled selected class="text-slate-700">Priority level</option>
+        <option value="high-priority" class="text-slate-900">🔴 High priority</option>
+        <option value="medium-priority" class="text-slate-900">🟡 Medium priority</option>
+        <option value="low-priority" class="text-slate-900">🟢 Low priority</option>
+      </select>
+
+      <input
+        class="flex-1 bg-white/10 border border-white/10 text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition cursor-pointer"
+        type="date"
+        name="compDate"
+        required
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-semibold rounded-xl py-2.5 text-sm transition-all shadow-lg hover:shadow-indigo-500/30 active:scale-95"
+    >
+      + Add Task
+    </button>
+
+  </form>
 </div>
